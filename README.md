@@ -1,2 +1,4 @@
 # HueLightFinalProject
-* Jeremy Goll
+
+- Jeremy Goll
+- Robert Cruz
