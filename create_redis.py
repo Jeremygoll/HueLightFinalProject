@@ -12,10 +12,7 @@ def clean_name(name):
 
 
 def createRedis():
-
-    r = create_redis.Redis(
-        host='localhost', port=6379, db=0)
-
+    r = create_redis.redis.StrictRedis(host='localhost', port=6379, db=0)
     location = os.path.realpath(
         os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
@@ -38,3 +35,4 @@ def createRedis():
 
 if __name__ == '__main__':
     createRedis()
+    print("Redis database created")
