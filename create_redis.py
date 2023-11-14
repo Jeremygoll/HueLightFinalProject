@@ -1,18 +1,12 @@
-import create_redis
+import redis
 import os
-import string
+from color_converter import clean_name
 
 
-def clean_name(name):
-    name = name.lower()
-    name = name.strip()
-    name = name.replace('\'', '')
-    name = name.replace('-', ' ')
-    return name.translate(str.maketrans("", "", string.punctuation))
+def go():
 
+    r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
-def createRedis():
-    r = create_redis.redis.StrictRedis(host='localhost', port=6379, db=0)
     location = os.path.realpath(
         os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
@@ -34,5 +28,5 @@ def createRedis():
 
 
 if __name__ == '__main__':
-    createRedis()
-    print("Redis database created")
+    print("Creating redis database")
+    go()
